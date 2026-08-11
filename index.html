@@ -9,18 +9,32 @@
 </head>
 <body>
 
+    <!-- CUSTOM CROSSHAIR CURSOR -->
+    <div id="custom-cursor">
+        <div class="cursor-dot"></div>
+    </div>
+    
+    <canvas id="particle-canvas"></canvas>
+
     <!-- Navigation Bar -->
     <nav id="navbar">
         <div class="logo">🥷 Robo<span>Ninjas</span></div>
         <ul class="nav-links">
             <li><a href="#home">Home</a></li>
+            <li><a href="#about">About FTC</a></li>
             <li><a href="#team">Our Team</a></li>
             <li><a href="#support">Support Us</a></li>
-            <li><a href="#contact">Contact</a></li>
+            <li><a href="#contact">Contact Us</a></li>
         </ul>
         <div class="nav-controls">
-            <!-- Theme Toggle Button -->
-            <button id="theme-btn" class="theme-btn">☀️</button>
+            <!-- Neon Color Picker -->
+            <div class="color-picker">
+                <div class="color-dot blue active" data-color="#00d2ff" data-rgb="0, 210, 255"></div>
+                <div class="color-dot red" data-color="#ff003c" data-rgb="255, 0, 60"></div>
+                <div class="color-dot green" data-color="#00ff66" data-rgb="0, 255, 102"></div>
+                <div class="color-dot purple" data-color="#bc13fe" data-rgb="188, 19, 254"></div>
+            </div>
+            
             <div class="burger">
                 <div class="line1"></div>
                 <div class="line2"></div>
@@ -30,103 +44,132 @@
     </nav>
 
     <!-- Page 1: Home -->
-    <section id="home" class="hero">
-        <div class="hero-content">
-            <h1>We Are FTC Team <span class="highlight">Roboninjas</span></h1>
+    <section id="home" class="hero fade-in">
+        <div class="hero-content glass-panel" data-tilt data-tilt-max="3" data-tilt-speed="400" data-tilt-glare="true" data-tilt-max-glare="0.2">
+            <h1>We Are FTC Team <span class="highlight glow-text">Roboninjas</span></h1>
             <p>Building robots, solving problems, and mastering the art of STEM.</p>
             <div class="sponsor-tag">
                 <p>Proudly powered by our partnership with <strong>Code Ninjas</strong>.</p>
             </div>
-            <a href="#support" class="btn">Support Our Mission</a>
+            <br>
+            <div class="hero-buttons">
+                <a href="#support" class="btn glow-btn">Support Our Mission</a>
+                <a href="https://youtube.com" target="_blank" class="btn outline-btn">📺 Watch on YouTube</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section: What is FTC? -->
+    <section id="about" class="about-section">
+        <h2 class="fade-in">What is <span class="highlight glow-text">FIRST Tech Challenge?</span></h2>
+        <div class="about-content glass-panel fade-in" data-tilt data-tilt-max="2" data-tilt-glare="true" data-tilt-max-glare="0.1">
+            <p><strong>FIRST Tech Challenge (FTC)</strong> is more than just building robots. It is a global robotics competition where teams of up to 15 students design, build, and program robots to compete in an alliance format against other teams.</p>
+            <br>
+            <p>We operate like a real-world engineering business. We raise funds, design our brand, do community outreach, and learn hands-on CAD, Java programming, and mechanical engineering.</p>
         </div>
     </section>
 
     <!-- Page 2: Team Members -->
     <section id="team" class="team-section">
-        <h2>Meet the <span class="highlight">Ninjas</span></h2>
+        <h2 class="fade-in">Meet the <span class="highlight glow-text">Ninjas</span></h2>
         
-        <!-- Big Coach Card -->
-        <div class="coach-container">
-            <div class="coach-card">
+        <div class="coach-container fade-in">
+            <div class="coach-card glass-panel" data-tilt data-tilt-max="5" data-tilt-glare="true" data-tilt-max-glare="0.3">
                 <div class="avatar-coach"></div>
                 <h3>Coach's Name</h3>
-                <p><strong>Lead Mentor & Guide</strong></p>
+                <p class="highlight"><strong>Lead Mentor & Guide</strong></p>
                 <p class="coach-bio">Thank you for guiding our team, organizing our build sessions, and helping us become better engineers!</p>
             </div>
         </div>
 
         <div class="team-grid">
-            <!-- 9 Team Members with Black Placeholders -->
-            <div class="team-card"><div class="avatar-black"></div><h3>Member 1</h3><p>Role</p></div>
-            <div class="team-card"><div class="avatar-black"></div><h3>Member 2</h3><p>Role</p></div>
-            <div class="team-card"><div class="avatar-black"></div><h3>Member 3</h3><p>Role</p></div>
-            <div class="team-card"><div class="avatar-black"></div><h3>Member 4</h3><p>Role</p></div>
-            <div class="team-card"><div class="avatar-black"></div><h3>Member 5</h3><p>Role</p></div>
-            <div class="team-card"><div class="avatar-black"></div><h3>Member 6</h3><p>Role</p></div>
-            <div class="team-card"><div class="avatar-black"></div><h3>Member 7</h3><p>Role</p></div>
-            <div class="team-card"><div class="avatar-black"></div><h3>Member 8</h3><p>Role</p></div>
-            <div class="team-card"><div class="avatar-black"></div><h3>Member 9</h3><p>Role</p></div>
+            <div class="team-card glass-panel fade-in" data-tilt data-tilt-max="10" data-tilt-glare="true" data-tilt-max-glare="0.4"><div class="avatar-black"></div><h3>Alex</h3><p>Lead Programmer</p></div>
+            <div class="team-card glass-panel fade-in" data-tilt data-tilt-max="10" data-tilt-glare="true" data-tilt-max-glare="0.4"><div class="avatar-black"></div><h3>Sam</h3><p>Build Captain</p></div>
+            <div class="team-card glass-panel fade-in" data-tilt data-tilt-max="10" data-tilt-glare="true" data-tilt-max-glare="0.4"><div class="avatar-black"></div><h3>Jordan</h3><p>Engineering Portfolio</p></div>
+            <div class="team-card glass-panel fade-in" data-tilt data-tilt-max="10" data-tilt-glare="true" data-tilt-max-glare="0.4"><div class="avatar-black"></div><h3>Casey</h3><p>Outreach Lead</p></div>
+            <div class="team-card glass-panel fade-in" data-tilt data-tilt-max="10" data-tilt-glare="true" data-tilt-max-glare="0.4"><div class="avatar-black"></div><h3>Taylor</h3><p>Driver</p></div>
+            <div class="team-card glass-panel fade-in" data-tilt data-tilt-max="10" data-tilt-glare="true" data-tilt-max-glare="0.4"><div class="avatar-black"></div><h3>Morgan</h3><p>CAD Designer</p></div>
+            <div class="team-card glass-panel fade-in" data-tilt data-tilt-max="10" data-tilt-glare="true" data-tilt-max-glare="0.4"><div class="avatar-black"></div><h3>Riley</h3><p>Media Specialist</p></div>
+            <div class="team-card glass-panel fade-in" data-tilt data-tilt-max="10" data-tilt-glare="true" data-tilt-max-glare="0.4"><div class="avatar-black"></div><h3>Drew</h3><p>Electrician</p></div>
         </div>
     </section>
 
-    <!-- Page 3: GoFundMe & Links -->
+    <!-- Page 3: Funding & Support -->
     <section id="support" class="support-section">
-        <h2>Fuel Our <span class="highlight">Robotics Journey</span></h2>
-        <p>Building a competitive FTC robot takes parts, tools, and registration fees. We rely on our amazing community to help us succeed!</p>
+        <h2 class="fade-in">Fuel Our <span class="highlight glow-text">Mission</span></h2>
         
-        <div class="support-cards">
-            <div class="card donate-card">
-                <h3>Donate on GoFundMe</h3>
-                <p>Every dollar helps us buy parts and travel to competitions.</p>
-                <a href="#" target="_blank" class="btn gfm-btn">Go to GoFundMe</a>
+        <div class="funding-tracker glass-panel fade-in" data-tilt data-tilt-max="2">
+            <h3>Season Goal: $10,000</h3>
+            <div class="progress-bar-container">
+                <div class="progress-bar-fill" style="width: 0%;"></div>
             </div>
-            <div class="card follow-card">
-                <h3>Follow Our Progress</h3>
-                <p>Check out our build logs and competition updates!</p>
-                <div class="social-links">
-                    <a href="#">Instagram</a>
-                    <a href="#">YouTube</a>
-                </div>
+            <div class="funding-milestones">
+                <span>$0 Raised</span>
+                <span>$10,000 Goal</span>
+            </div>
+            <div class="funding-breakdown">
+                <h4>What Your Funds Cover</h4>
+                <div class="mini-tracker"><div class="mini-label"><span>Robot Parts</span><span>$0 / $4,000</span></div><div class="mini-bar-container"><div class="mini-bar-fill parts-color" style="width: 0%;"></div></div></div>
+                <div class="mini-tracker"><div class="mini-label"><span>Competition Fees</span><span>$0 / $2,000</span></div><div class="mini-bar-container"><div class="mini-bar-fill fees-color" style="width: 0%;"></div></div></div>
+                <div class="mini-tracker"><div class="mini-label"><span>Travel & Lodging</span><span>$0 / $3,000</span></div><div class="mini-bar-container"><div class="mini-bar-fill travel-color" style="width: 0%;"></div></div></div>
+                <div class="mini-tracker"><div class="mini-label"><span>Community Outreach</span><span>$0 / $1,000</span></div><div class="mini-bar-container"><div class="mini-bar-fill outreach-color" style="width: 0%;"></div></div></div>
             </div>
         </div>
+
+        <h3 class="tier-title fade-in">Sponsorship Tiers</h3>
+        <div class="support-cards">
+            <div class="card glass-panel tier-card fade-in" data-tilt data-tilt-max="8" data-tilt-glare="true" data-tilt-max-glare="0.3">
+                <h3 class="highlight">Bronze Ninja</h3>
+                <h2>$25+</h2>
+                <p>Social media shoutout and your name on our website's sponsor slider.</p>
+            </div>
+            <div class="card glass-panel tier-card fade-in" data-tilt data-tilt-max="8" data-tilt-glare="true" data-tilt-max-glare="0.3">
+                <h3 class="highlight">Silver Ninja</h3>
+                <h2>$100+</h2>
+                <p>Small logo on our robot and team t-shirt, plus Bronze rewards.</p>
+            </div>
+            <div class="card glass-panel tier-card fade-in" data-tilt data-tilt-max="8" data-tilt-glare="true" data-tilt-max-glare="0.3">
+                <h3 class="highlight">Gold Ninja</h3>
+                <h2>$500+</h2>
+                <p>Large logo on the robot, t-shirt, pit banner, and an official team plaque.</p>
+            </div>
+        </div>
+        
+        <a href="#" target="_blank" class="btn glow-btn fade-in" style="margin-top: 40px;">Donate on GoFundMe</a>
     </section>
 
     <!-- Page 4: Contact Us -->
     <section id="contact" class="contact-section">
-        <h2>Get in <span class="highlight">Touch</span></h2>
-        <p class="contact-subtitle">Want to sponsor us, ask a question, or learn more about FTC? Reach out directly!</p>
+        <h2 class="fade-in">Get In <span class="highlight glow-text">Touch</span></h2>
         
-        <div class="contact-container">
+        <div class="contact-card glass-panel fade-in" data-tilt data-tilt-max="5" data-tilt-glare="true" data-tilt-max-glare="0.2">
+            <h3>Reach Out to the Ninjas</h3>
+            <p>Have questions, want to sponsor us, or just want to talk robots? Drop us a line!</p>
             <div class="contact-info">
-                <div class="info-item">
-                    <span class="icon">📧</span>
-                    <h3>Email Us</h3>
-                    <!-- Replace with your actual team email -->
-                    <p><a href="mailto:team@roboninjas.com">team@roboninjas.com</a></p>
-                </div>
-                
-                <div class="info-item">
-                    <span class="icon">📱</span>
-                    <h3>Call or Text</h3>
-                    <!-- Replace with your actual phone number -->
-                    <p><a href="tel:+11234567890">(123) 456-7890</a></p>
-                </div>
+                <p><strong>📧 Email:</strong> <a href="mailto:team@roboninjas.com" class="highlight">team@roboninjas.com</a></p>
+                <p><strong>📞 Phone:</strong> <a href="tel:+1234567890" class="highlight">(123) 456-7890</a></p>
             </div>
         </div>
     </section>
 
-    <!-- Infinite Sponsor Slider (Moved to the bottom) -->
-    <section id="sponsors" class="sponsors-section">
-        <h2>Our <span class="highlight">Sponsors</span></h2>
-        <div class="sponsor-slider">
+    <!-- Infinite Sponsor Slider -->
+    <section id="sponsors" class="sponsors-section fade-in">
+        <h2>Our <span class="highlight glow-text">Sponsors</span></h2>
+        <div class="sponsor-slider glass-panel">
             <div class="sponsor-track">
-                <div class="sponsor-box">Sponsor 1</div>
+                <!-- White-box class fixes the Code Ninjas Logo background! -->
+                <div class="sponsor-box white-box">
+                    <img src="image.png" alt="Code Ninjas" class="sponsor-img">
+                </div>
                 <div class="sponsor-box">Sponsor 2</div>
                 <div class="sponsor-box">Sponsor 3</div>
                 <div class="sponsor-box">Sponsor 4</div>
                 <div class="sponsor-box">Sponsor 5</div>
                 <div class="sponsor-box">Sponsor 6</div>
-                <div class="sponsor-box">Sponsor 1</div>
+                <!-- Duplicates for seamless infinite scroll -->
+                <div class="sponsor-box white-box">
+                    <img src="image.png" alt="Code Ninjas" class="sponsor-img">
+                </div>
                 <div class="sponsor-box">Sponsor 2</div>
                 <div class="sponsor-box">Sponsor 3</div>
                 <div class="sponsor-box">Sponsor 4</div>
@@ -136,6 +179,184 @@
         </div>
     </section>
 
-    <script src="script.js"></script>
+    <!-- Vanilla Tilt for 3D physics -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.0/vanilla-tilt.min.js"></script>
+    
+    <!-- EMBEDDED JAVASCRIPT: Bypasses caching entirely -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            console.log("🚀 Roboninjas Script Loaded Successfully!");
+
+            // 1. Color Theme Picker Logic
+            let currentHex = '#00d2ff';
+            let currentRgb = '0, 210, 255';
+            
+            const colorDots = document.querySelectorAll('.color-dot');
+            
+            colorDots.forEach(dot => {
+                dot.addEventListener('click', (e) => {
+                    e.preventDefault(); 
+                    colorDots.forEach(d => d.classList.remove('active'));
+                    dot.classList.add('active');
+                    
+                    currentHex = dot.getAttribute('data-color');
+                    currentRgb = dot.getAttribute('data-rgb');
+                    
+                    document.documentElement.style.setProperty('--primary', currentHex);
+                    document.documentElement.style.setProperty('--primary-rgb', currentRgb);
+                });
+            });
+
+            // 2. FIXED Custom Crosshair Cursor (Ignores touchscreen laptops now)
+            const cursor = document.getElementById('custom-cursor');
+            const cursorDot = document.querySelector('.cursor-dot');
+            
+            // Only turn on the custom cursor if the screen is wider than a tablet/mobile device
+            if (cursor && window.innerWidth > 768) {
+                document.body.classList.add('hide-default-cursor');
+
+                document.addEventListener('mousemove', (e) => {
+                    cursor.style.left = e.clientX + 'px';
+                    cursor.style.top = e.clientY + 'px';
+                });
+
+                const interactiveElements = document.querySelectorAll('a, button, .team-card, .tier-card, .color-dot');
+                interactiveElements.forEach(el => {
+                    el.addEventListener('mouseenter', () => {
+                        cursor.style.width = '50px';
+                        cursor.style.height = '50px';
+                        cursor.style.backgroundColor = `rgba(${currentRgb}, 0.2)`;
+                        if(cursorDot) cursorDot.style.opacity = '0';
+                    });
+                    el.addEventListener('mouseleave', () => {
+                        cursor.style.width = '30px';
+                        cursor.style.height = '30px';
+                        cursor.style.backgroundColor = 'transparent';
+                        if(cursorDot) cursorDot.style.opacity = '1'; 
+                    });
+                });
+            } else if (cursor) {
+                cursor.style.display = 'none'; 
+            }
+
+            // 3. Mobile Menu Toggle
+            const burger = document.querySelector('.burger');
+            const nav = document.querySelector('.nav-links');
+            const navLinks = document.querySelectorAll('.nav-links li');
+
+            if (burger && nav) {
+                burger.addEventListener('click', () => {
+                    nav.classList.toggle('nav-active');
+                    navLinks.forEach((link, index) => {
+                        if (link.style.animation) {
+                            link.style.animation = '';
+                        } else {
+                            link.style.animation = `navLinkFade 0.5s ease forwards ${index / 7 + 0.3}s`;
+                        }
+                    });
+                    burger.classList.toggle('toggle');
+                });
+            }
+
+            // 4. Advanced Particle Background
+            const canvas = document.getElementById('particle-canvas');
+            if (canvas) {
+                const ctx = canvas.getContext('2d');
+                let particlesArray = [];
+                canvas.width = window.innerWidth;
+                canvas.height = window.innerHeight;
+
+                window.addEventListener('resize', () => {
+                    canvas.width = window.innerWidth;
+                    canvas.height = window.innerHeight;
+                    initParticles();
+                });
+
+                class Particle {
+                    constructor() {
+                        this.x = Math.random() * canvas.width;
+                        this.y = Math.random() * canvas.height;
+                        this.size = Math.random() * 2 + 1;
+                        this.speedX = (Math.random() * 1.5) - 0.75;
+                        this.speedY = (Math.random() * 1.5) - 0.75;
+                    }
+                    update() {
+                        this.x += this.speedX;
+                        this.y += this.speedY;
+                        if (this.x < 0 || this.x > canvas.width) this.speedX *= -1;
+                        if (this.y < 0 || this.y > canvas.height) this.speedY *= -1;
+                    }
+                    draw() {
+                        ctx.fillStyle = currentHex;
+                        ctx.beginPath();
+                        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                        ctx.fill();
+                    }
+                }
+
+                function initParticles() {
+                    particlesArray = [];
+                    let numberOfParticles = (canvas.width * canvas.height) / 12000;
+                    for (let i = 0; i < numberOfParticles; i++) {
+                        particlesArray.push(new Particle());
+                    }
+                }
+
+                function animateParticles() {
+                    ctx.clearRect(0, 0, canvas.width, canvas.height);
+                    
+                    for (let i = 0; i < particlesArray.length; i++) {
+                        particlesArray[i].update();
+                        particlesArray[i].draw();
+                        
+                        for (let j = i; j < particlesArray.length; j++) {
+                            const dx = particlesArray[i].x - particlesArray[j].x;
+                            const dy = particlesArray[i].y - particlesArray[j].y;
+                            const distance = Math.sqrt(dx * dx + dy * dy);
+                            
+                            if (distance < 130) {
+                                ctx.beginPath();
+                                ctx.strokeStyle = `rgba(${currentRgb}, ${1 - distance/130})`; 
+                                ctx.lineWidth = 1;
+                                ctx.moveTo(particlesArray[i].x, particlesArray[i].y);
+                                ctx.lineTo(particlesArray[j].x, particlesArray[j].y);
+                                ctx.stroke();
+                            }
+                        }
+                    }
+                    requestAnimationFrame(animateParticles);
+                }
+                
+                initParticles();
+                animateParticles();
+            }
+
+            // 5. Scroll Reveal Physics
+            const fadeElements = document.querySelectorAll('.fade-in');
+            
+            const scrollObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        scrollObserver.unobserve(entry.target);
+                    }
+                });
+            }, { 
+                threshold: 0.1, 
+                rootMargin: "0px 0px -50px 0px"
+            });
+
+            fadeElements.forEach(el => scrollObserver.observe(el));
+            
+            setTimeout(() => {
+                fadeElements.forEach(el => {
+                    if (el.getBoundingClientRect().top < window.innerHeight) {
+                        el.classList.add('visible');
+                    }
+                });
+            }, 100);
+
+        });
+    </script>
 </body>
 </html>
