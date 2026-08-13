@@ -6,12 +6,10 @@ document.addEventListener('DOMContentLoaded', () => {
     let currentRgb = '0, 210, 255';
     
     const colorDots = document.querySelectorAll('.color-dot');
-    console.log(`🔎 Found ${colorDots.length} color dots on the page.`);
     
     colorDots.forEach(dot => {
         dot.addEventListener('click', (e) => {
             e.preventDefault(); 
-            console.log("🎨 Color dot clicked! Class:", dot.className);
             
             colorDots.forEach(d => d.classList.remove('active'));
             dot.classList.add('active');
@@ -21,17 +19,14 @@ document.addEventListener('DOMContentLoaded', () => {
             
             document.documentElement.style.setProperty('--primary', currentHex);
             document.documentElement.style.setProperty('--primary-rgb', currentRgb);
-            console.log(`✅ Colors updated to Hex: ${currentHex}`);
         });
     });
 
-    // 2. FIXED Custom Crosshair Cursor (Ignores touchscreen laptops now)
+    // 2. Custom Crosshair Cursor
     const cursor = document.getElementById('custom-cursor');
     const cursorDot = document.querySelector('.cursor-dot');
     
-    // Only turn on the custom cursor if the screen is wider than a tablet/mobile device (768px)
     if (cursor && window.innerWidth > 768) {
-        console.log("🖱️ Desktop screen detected, Custom cursor activated.");
         document.body.classList.add('hide-default-cursor');
 
         document.addEventListener('mousemove', (e) => {
@@ -45,17 +40,16 @@ document.addEventListener('DOMContentLoaded', () => {
                 cursor.style.width = '50px';
                 cursor.style.height = '50px';
                 cursor.style.backgroundColor = `rgba(${currentRgb}, 0.2)`;
-                if(cursorDot) cursorDot.style.opacity = '0'; // Hide the inner dot on hover
+                if(cursorDot) cursorDot.style.opacity = '0';
             });
             el.addEventListener('mouseleave', () => {
                 cursor.style.width = '30px';
                 cursor.style.height = '30px';
                 cursor.style.backgroundColor = 'transparent';
-                if(cursorDot) cursorDot.style.opacity = '1'; // Show the inner dot again
+                if(cursorDot) cursorDot.style.opacity = '1'; 
             });
         });
     } else if (cursor) {
-        console.log("📱 Mobile/Small screen detected. Hiding custom cursor.");
         cursor.style.display = 'none'; 
     }
 
@@ -66,7 +60,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (burger && nav) {
         burger.addEventListener('click', () => {
-            console.log("🍔 Mobile burger menu clicked!");
             nav.classList.toggle('nav-active');
             navLinks.forEach((link, index) => {
                 if (link.style.animation) {
@@ -82,7 +75,6 @@ document.addEventListener('DOMContentLoaded', () => {
     // 4. Advanced Particle Background
     const canvas = document.getElementById('particle-canvas');
     if (canvas) {
-        console.log("✨ Particle canvas initialized.");
         const ctx = canvas.getContext('2d');
         let particlesArray = [];
         canvas.width = window.innerWidth;
@@ -177,5 +169,27 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     }, 100);
+
+    // 6. Floating Back to Top Button Logic
+    const backToTopBtn = document.getElementById('backToTopBtn');
+    
+    if (backToTopBtn) {
+        // Show/hide based on scroll position
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 400) { // Shows up after scrolling down 400px
+                backToTopBtn.classList.add('show');
+            } else {
+                backToTopBtn.classList.remove('show');
+            }
+        });
+
+        // Click to scroll up smoothly
+        backToTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    }
 
 });
