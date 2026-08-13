@@ -4,6 +4,17 @@
     --primary-rgb: 0, 210, 255;
 }
 
+/* --- ICONS STYLING --- */
+.fa-solid, .fa-brands {
+    margin-right: 8px;
+}
+
+/* --- CUSTOM NEON SCROLLBAR --- */
+::-webkit-scrollbar { width: 10px; }
+::-webkit-scrollbar-track { background: #050508; border-left: 1px solid rgba(var(--primary-rgb), 0.2); }
+::-webkit-scrollbar-thumb { background: var(--primary); border-radius: 10px; box-shadow: 0 0 10px var(--primary); }
+::-webkit-scrollbar-thumb:hover { background: #fff; box-shadow: 0 0 20px #fff; }
+
 * { margin: 0; padding: 0; box-sizing: border-box; }
 html { scroll-behavior: smooth; }
 body {
@@ -17,7 +28,7 @@ body {
     color: #ffffff; line-height: 1.6; overflow-x: hidden;
 }
 
-/* --- UPGRADED CROSSHAIR CURSOR --- */
+/* --- CUSTOM CROSSHAIR CURSOR --- */
 #custom-cursor {
     position: fixed; top: -50px; left: -50px; width: 30px; height: 30px;
     border: 2px solid var(--primary); border-radius: 50%; pointer-events: none;
@@ -26,13 +37,7 @@ body {
     box-shadow: 0 0 10px var(--primary);
     display: flex; justify-content: center; align-items: center;
 }
-.cursor-dot {
-    width: 6px; height: 6px; background-color: var(--primary); border-radius: 50%;
-    box-shadow: 0 0 10px var(--primary);
-    transition: opacity 0.2s, background-color 0.3s, box-shadow 0.3s;
-}
-
-/* Forces the real mouse to hide completely anywhere on the page */
+.cursor-dot { width: 6px; height: 6px; background-color: var(--primary); border-radius: 50%; box-shadow: 0 0 10px var(--primary); transition: opacity 0.2s, background-color 0.3s, box-shadow 0.3s; }
 body.hide-default-cursor, body.hide-default-cursor * { cursor: none !important; }
 
 #particle-canvas { position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; z-index: -1; opacity: 0.8; }
@@ -67,23 +72,38 @@ nav { display: flex; justify-content: space-between; align-items: center; paddin
 .color-dot.red { background-color: #ff003c; }
 .color-dot.green { background-color: #00ff66; }
 .color-dot.purple { background-color: #bc13fe; }
-
 .burger { display: none; cursor: pointer; }
 .burger div { width: 25px; height: 3px; background-color: #fff; margin: 5px; transition: all 0.3s ease; }
+
 section { min-height: 100vh; padding: 120px 5%; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; }
 .hero-content { padding: 60px 40px; max-width: 900px; width: 100%; }
 .hero h1 { font-size: 3.5rem; margin-bottom: 20px; transform: translateZ(50px); }
 .hero p { transform: translateZ(30px); }
 .sponsor-tag { transform: translateZ(40px); }
 
-/* Buttons */
+/* --- UPGRADED BUTTON HOVER EFFECTS --- */
 .hero-buttons { display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; transform: translateZ(60px); }
-.btn { display: inline-block; padding: 15px 30px; font-weight: 900; border-radius: 30px; transition: all 0.3s; text-decoration: none; }
-.glow-btn { background-color: var(--primary); color: #121212; box-shadow: 0 0 15px var(--primary), 0 0 30px var(--primary); transition: background-color 0.3s, box-shadow 0.3s; }
-.glow-btn:hover { background-color: #fff; box-shadow: 0 0 30px rgba(255, 255, 255, 0.8); }
-.outline-btn { background: transparent; color: #fff; border: 2px solid #fff; }
-.outline-btn:hover { background: #fff; color: #121212; box-shadow: 0 0 20px #fff; }
+.btn { 
+    display: inline-block; 
+    padding: 15px 30px; 
+    font-weight: 900; 
+    border-radius: 30px; 
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); 
+    text-decoration: none; 
+}
+.glow-btn { 
+    background-color: var(--primary); 
+    color: #121212; 
+    box-shadow: 0 0 15px var(--primary), 0 0 30px var(--primary); 
+}
+.glow-btn:hover { 
+    background-color: #fff; 
+    box-shadow: 0 0 30px rgba(255, 255, 255, 0.9), 0 0 50px rgba(255, 255, 255, 0.6); 
+    transform: scale(1.08) translateY(-4px); 
+    letter-spacing: 1px; 
+}
 
+/* Sections */
 .about-section h2, .team-section h2, .support-section h2, .contact-section h2 { font-size: 3rem; margin-bottom: 30px; }
 .about-content { padding: 50px; max-width: 900px; width: 100%; }
 .about-content p { transform: translateZ(30px); font-size: 1.4rem; line-height: 1.8; }
@@ -97,6 +117,8 @@ section { min-height: 100vh; padding: 120px 5%; display: flex; flex-direction: c
 .avatar-black { width: 80px; height: 80px; background-color: #000; margin: 0 auto 15px auto; border-radius: 50%; border: 2px solid #555; transform: translateZ(40px); }
 .team-card h3 { transform: translateZ(30px); }
 .team-card p { transform: translateZ(20px); }
+
+/* Funding Dashboard */
 .funding-tracker { width: 100%; max-width: 800px; padding: 40px; margin-bottom: 50px; }
 .funding-tracker h3 { font-size: 2rem; margin-bottom: 20px; transform: translateZ(30px); }
 .progress-bar-container { width: 100%; height: 30px; background-color: #222; border-radius: 15px; overflow: hidden; border: 1px solid #444; transform: translateZ(20px); }
@@ -112,14 +134,62 @@ section { min-height: 100vh; padding: 120px 5%; display: flex; flex-direction: c
 .fees-color { background: linear-gradient(90deg, #f7b733, #fc4a1a); }
 .travel-color { background: linear-gradient(90deg, #b224ef, #7579ff); }
 .outreach-color { background: linear-gradient(90deg, #11998e, #38ef7d); }
-.tier-title { font-size: 2.5rem; margin-bottom: 30px; }
-.support-cards { display: flex; gap: 30px; flex-wrap: wrap; justify-content: center; }
-.tier-card { padding: 40px; max-width: 300px; }
-.tier-card h3 { transform: translateZ(40px); }
-.tier-card h2 { font-size: 2.5rem; margin: 15px 0; transform: translateZ(30px); text-shadow: 0 0 10px rgba(255, 255, 255, 0.3); }
-.tier-card p { transform: translateZ(20px); }
 
-/* --- CONTACT SECTION --- */
+/* --- UPGRADED TIER CARDS WITH METALLIC HOVERS --- */
+.tier-title { font-size: 2.5rem; margin-bottom: 30px; }
+.support-cards { display: flex; gap: 30px; flex-wrap: wrap; justify-content: center; align-items: stretch; }
+
+.tier-card { 
+    padding: 40px; 
+    width: 100%; 
+    max-width: 360px; 
+    display: flex; 
+    flex-direction: column; 
+    text-align: left; 
+    transition: transform 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease;
+}
+
+.tier-card h3.tier-name { 
+    transform: translateZ(40px); 
+    text-align: center; 
+    font-size: 1.8rem; 
+    color: var(--primary);
+    transition: color 0.4s ease, text-shadow 0.4s ease;
+}
+
+.tier-card h2 { font-size: 2.2rem; margin: 15px 0 25px 0; padding-bottom: 15px; border-bottom: 1px solid rgba(255, 255, 255, 0.1); transform: translateZ(30px); text-shadow: 0 0 10px rgba(255, 255, 255, 0.3); text-align: center; }
+.tier-benefits { list-style: none; padding: 0; margin: 0; transform: translateZ(20px); flex-grow: 1; }
+.tier-benefits li { position: relative; padding-left: 28px; margin-bottom: 15px; font-size: 1rem; color: #e0e0e0; line-height: 1.5; }
+.tier-benefits li::before { content: '✔'; position: absolute; left: 0; top: 0; color: var(--primary); text-shadow: 0 0 8px var(--primary); font-size: 1.2rem; transition: color 0.4s ease, text-shadow 0.4s ease; }
+
+/* 🥉 BRONZE HOVER */
+.bronze-tier:hover {
+    transform: translateY(-10px) !important;
+    border-color: #cd7f32;
+    box-shadow: 0 15px 35px rgba(205, 127, 50, 0.3), inset 0 0 20px rgba(205, 127, 50, 0.15);
+}
+.bronze-tier:hover h3.tier-name { color: #cd7f32; text-shadow: 0 0 15px #cd7f32; }
+.bronze-tier:hover .tier-benefits li::before { color: #cd7f32; text-shadow: 0 0 8px #cd7f32; }
+
+/* 🥈 SILVER HOVER */
+.silver-tier:hover {
+    transform: translateY(-10px) !important;
+    border-color: #e3e4e5;
+    box-shadow: 0 15px 35px rgba(227, 228, 229, 0.3), inset 0 0 20px rgba(227, 228, 229, 0.15);
+}
+.silver-tier:hover h3.tier-name { color: #e3e4e5; text-shadow: 0 0 15px #e3e4e5; }
+.silver-tier:hover .tier-benefits li::before { color: #e3e4e5; text-shadow: 0 0 8px #e3e4e5; }
+
+/* 🥇 GOLD HOVER */
+.gold-tier:hover {
+    transform: translateY(-10px) !important;
+    border-color: #ffd700;
+    box-shadow: 0 15px 35px rgba(255, 215, 0, 0.3), inset 0 0 20px rgba(255, 215, 0, 0.15);
+}
+.gold-tier:hover h3.tier-name { color: #ffd700; text-shadow: 0 0 15px #ffd700; }
+.gold-tier:hover .tier-benefits li::before { color: #ffd700; text-shadow: 0 0 8px #ffd700; }
+
+/* Contact Section */
 .contact-section { min-height: auto; padding-bottom: 80px; }
 .contact-card { padding: 50px; width: 100%; max-width: 600px; text-align: center; }
 .contact-card h3 { font-size: 2rem; margin-bottom: 15px; transform: translateZ(40px); }
@@ -134,16 +204,8 @@ section { min-height: 100vh; padding: 120px 5%; display: flex; flex-direction: c
 .sponsor-slider { width: 100%; overflow: hidden; position: relative; padding: 30px 0; border-radius: 20px; }
 .sponsor-track { display: inline-flex; width: max-content; animation: infinite-scroll 25s linear infinite; }
 .sponsor-track:hover { animation-play-state: paused; }
-.sponsor-box { 
-    width: 200px; height: 100px; background: rgba(0, 0, 0, 0.5); color: #888; margin: 0 20px; 
-    border-radius: 10px; display: flex; justify-content: center; align-items: center; 
-    font-weight: 700; font-size: 1.2rem; border: 1px dashed rgba(var(--primary-rgb), 0.3); 
-    transition: all 0.3s; overflow: hidden;
-    padding: 15px; 
-}
+.sponsor-box { width: 200px; height: 100px; background: rgba(0, 0, 0, 0.5); color: #888; margin: 0 20px; border-radius: 10px; display: flex; justify-content: center; align-items: center; font-weight: 700; font-size: 1.2rem; border: 1px dashed rgba(var(--primary-rgb), 0.3); transition: all 0.3s; overflow: hidden; padding: 15px; text-decoration: none; }
 .sponsor-box:hover { border-color: var(--primary); color: var(--primary); box-shadow: 0 0 15px rgba(var(--primary-rgb), 0.3); }
-
-/* Solid white background fix for Code Ninjas Logo */
 .sponsor-box.white-box { background: #ffffff; border-style: solid; }
 .sponsor-img { max-width: 100%; max-height: 100%; object-fit: contain; border-radius: 5px; }
 
@@ -153,6 +215,50 @@ section { min-height: 100vh; padding: 120px 5%; display: flex; flex-direction: c
 .fade-in { opacity: 0; transform: translateY(40px) translateZ(0); transition: opacity 0.8s ease-out, transform 0.8s ease-out; will-change: opacity, transform; }
 .fade-in.visible { opacity: 1; transform: translateY(0) translateZ(0); }
 .fade-in.glass-panel { transform-style: preserve-3d; }
+
+/* --- FLOATING BACK TO TOP BUTTON --- */
+#backToTopBtn {
+    position: fixed;
+    bottom: 40px;
+    right: 40px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: var(--primary);
+    color: #121212;
+    border: none;
+    font-size: 1.2rem;
+    cursor: pointer;
+    box-shadow: 0 0 15px var(--primary), 0 0 30px var(--primary);
+    z-index: 999;
+    
+    /* Perfect Centering */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(20px);
+    transition: all 0.3s ease;
+}
+
+#backToTopBtn i {
+    margin: 0 !important; 
+}
+
+#backToTopBtn.show {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+}
+
+#backToTopBtn:hover {
+    background-color: #fff;
+    box-shadow: 0 0 30px rgba(255, 255, 255, 0.8);
+    transform: translateY(-5px); 
+}
 
 /* Mobile Safeties */
 @media screen and (max-width: 768px) {
@@ -167,6 +273,8 @@ section { min-height: 100vh; padding: 120px 5%; display: flex; flex-direction: c
     .contact-card { padding: 30px 15px; }
     .tier-title { font-size: 2rem; }
     .burger { display: block; }
+    
+    #backToTopBtn { bottom: 20px; right: 20px; } 
     
     .nav-links {
         position: absolute; right: 0px; top: 70px;
