@@ -54,9 +54,22 @@ body.hide-default-cursor, body.hide-default-cursor * { cursor: none !important; 
 }
 
 /* Navbar */
-nav { display: flex; justify-content: space-between; align-items: center; padding: 20px 5%; background: rgba(10, 10, 15, 0.9); position: fixed; width: 100%; top: 0; z-index: 100; }
-.logo { font-size: 1.5rem; font-weight: 900; }
-.logo span { color: var(--primary); text-shadow: 0 0 10px var(--primary); transition: all 0.3s; }
+nav { display: flex; justify-content: space-between; align-items: center; padding: 15px 5%; background: rgba(10, 10, 15, 0.9); position: fixed; width: 100%; top: 0; z-index: 100; }
+
+/* --- NEW IMAGE LOGO STYLES --- */
+.logo { display: flex; align-items: center; text-decoration: none; }
+.logo img { 
+    height: 65px; 
+    width: auto; 
+    border-radius: 50%; 
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.1); 
+    transition: transform 0.3s ease, box-shadow 0.3s ease; 
+}
+.logo img:hover { 
+    transform: scale(1.1); 
+    box-shadow: 0 0 20px var(--primary); 
+}
+
 .nav-links { display: flex; list-style: none; }
 .nav-links li { padding: 0 20px; }
 .nav-links a { color: #fff; text-decoration: none; font-weight: 700; transition: 0.3s; }
@@ -107,8 +120,8 @@ section { min-height: 100vh; padding: 120px 5%; display: flex; flex-direction: c
 .about-section h2, .team-section h2, .support-section h2, .contact-section h2 { font-size: 3rem; margin-bottom: 30px; }
 .about-content { padding: 50px; max-width: 900px; width: 100%; }
 .about-content p { transform: translateZ(30px); font-size: 1.4rem; line-height: 1.8; }
-.coach-container { display: flex; justify-content: center; width: 100%; margin-bottom: 50px; }
-.coach-card { padding: 50px; width: 100%; max-width: 600px; }
+.coach-container { display: flex; justify-content: center; gap: 30px; flex-wrap: wrap; width: 100%; margin-bottom: 50px; }
+.coach-card { padding: 40px; width: 100%; max-width: 320px; display: flex; flex-direction: column; align-items: center; }
 .avatar-coach { width: 130px; height: 130px; background-color: #000; margin: 0 auto 20px auto; border-radius: 50%; border: 3px solid var(--primary); transform: translateZ(50px); box-shadow: 0 0 20px var(--primary); transition: border-color 0.3s, box-shadow 0.3s; }
 .coach-card h3 { font-size: 2.2rem; margin-bottom: 5px; transform: translateZ(40px); }
 .coach-bio { margin-top: 15px; font-size: 0.95rem; color: #cccccc; line-height: 1.5; transform: translateZ(30px); }
@@ -277,7 +290,7 @@ section { min-height: 100vh; padding: 120px 5%; display: flex; flex-direction: c
     #backToTopBtn { bottom: 20px; right: 20px; } 
     
     .nav-links {
-        position: absolute; right: 0px; top: 70px;
+        position: absolute; right: 0px; top: 85px;
         background: rgba(10, 10, 15, 0.95); backdrop-filter: blur(10px);
         display: flex; flex-direction: column; align-items: center;
         width: 100%; transform: translateX(100%); transition: transform 0.3s ease-in;
