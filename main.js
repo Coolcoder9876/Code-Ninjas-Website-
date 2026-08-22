@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-    console.log("🚀 Roboninjas Script Loaded Successfully!");
+    console.log("🚀 RoboNinjas Script Loaded Successfully!");
 
     // 1. Color Theme Picker Logic
     let currentHex = '#00d2ff';
@@ -174,16 +174,14 @@ document.addEventListener('DOMContentLoaded', () => {
     const backToTopBtn = document.getElementById('backToTopBtn');
     
     if (backToTopBtn) {
-        // Show/hide based on scroll position
         window.addEventListener('scroll', () => {
-            if (window.scrollY > 400) { // Shows up after scrolling down 400px
+            if (window.scrollY > 400) { 
                 backToTopBtn.classList.add('show');
             } else {
                 backToTopBtn.classList.remove('show');
             }
         });
 
-        // Click to scroll up smoothly
         backToTopBtn.addEventListener('click', () => {
             window.scrollTo({
                 top: 0,
@@ -192,4 +190,44 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // 7. NEW: Animated Count-Up Numbers
+    const countUpElements = document.querySelectorAll('.count-up');
+    let hasCounted = false; // Prevents the animation from restarting every time you scroll past
+
+    const fundingSection = document.querySelector('.funding-tracker');
+    
+    if (fundingSection && countUpElements.length > 0) {
+        const countUpObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                // Trigger only when the user can see at least 50% of the section
+                if (entry.isIntersecting && !hasCounted) {
+                    hasCounted = true; 
+                    
+                    countUpElements.forEach(el => {
+                        const target = parseInt(el.getAttribute('data-target'));
+                        const duration = 2000; // 2 seconds total animation
+                        const frameRate = 16; // Runs at roughly 60fps
+                        const totalFrames = duration / frameRate;
+                        const increment = target / totalFrames;
+                        let current = 0;
+                        
+                        const updateCounter = () => {
+                            current += increment;
+                            if (current < target) {
+                                // Math.ceil rounds it to a whole number, toLocaleString adds the commas (e.g., 10,000)
+                                el.innerText = Math.ceil(current).toLocaleString();
+                                requestAnimationFrame(updateCounter);
+                            } else {
+                                el.innerText = target.toLocaleString();
+                            }
+                        };
+                        
+                        updateCounter();
+                    });
+                }
+            });
+        }, { threshold: 0.5 }); 
+
+        countUpObserver.observe(fundingSection);
+    }
 });
